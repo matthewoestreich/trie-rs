@@ -48,11 +48,11 @@ impl Trie {
         let mut cn = &self.root;
 
         for ch in prefix.chars() {
-            if let Some((index, _)) = cn.children.iter().enumerate().find(|(_, n)| n.value == ch) {
-                cn = &cn.children[index];
-            } else {
+            let Some((index, _)) = cn.children.iter().enumerate().find(|(_, n)| n.value == ch)
+            else {
                 return vec![];
-            }
+            };
+            cn = &cn.children[index];
         }
 
         Self::extract_words(cn)
