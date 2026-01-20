@@ -24,4 +24,7 @@ println!("{words_hel:?}"); // ["hello", "help", "helicopter"]
 
 let words_heli = trie.find_all_by_prefix("heli");
 println!("{words_heli:?}"); // ["helicopter"]
+
+let contains_h = trie.contains("h");
+println!("does trie contain prefix h? {contains_h}");
 ```
